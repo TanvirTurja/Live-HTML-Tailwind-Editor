@@ -3,150 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live HTML/Tailwind Code Editor</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Live HTML/Tailwind Editor - Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <h1 class="title">
-                    <div class="title-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
-                    </div>
-                    Live HTML/Tailwind Editor
-                </h1>
-                <div class="controls">
-                    <button id="themeToggle" class="theme-toggle" title="Toggle theme">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                        </svg>
-                    </button>
-                    <button id="clearBtn" class="btn btn-secondary">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                        Clear
-                    </button>
-                    <button id="copyBtn" class="btn btn-secondary">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
-                        </svg>
-                        Copy
-                    </button>
-                    <button id="downloadBtn" class="btn btn-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                        </svg>
-                        Download
-                    </button>
-                </div>
-            </div>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Live HTML/Tailwind Code Editor</h1>
+            <p class="text-xl text-gray-600 mb-8">Real-time HTML preview with Tailwind CSS</p>
+            <a href="index.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
+                Launch Editor
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </a>
         </header>
 
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <!-- Editor Panel -->
-            <section class="panel editor-panel">
-                <div class="panel-header">
-                    <h2>
-                        <svg class="panel-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
-                        HTML Editor
-                    </h2>
-                    <div class="panel-controls">
-                        <div class="editor-info">
-                            <span id="lineCount">Lines: 1</span>
+        <main class="max-w-4xl mx-auto">
+            <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Features</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
                         </div>
-                        <div class="editor-info">
-                            <span id="charCount">0 chars</span>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 mb-1">Real-time Preview</h3>
+                            <p class="text-gray-600">See your HTML changes instantly as you type</p>
                         </div>
                     </div>
-                </div>
-                <div class="editor-container">
-                    <div class="editor-wrapper">
-                        <div class="line-numbers" id="lineNumbers">1</div>
-                        <textarea
-                            id="codeEditor"
-                            class="code-editor"
-                            placeholder="Write your HTML code here with Tailwind CSS classes..."
-                            spellcheck="false"
-                            autocomplete="off"
-                            autocorrect="off"
-                            autocapitalize="off"
-                        ></textarea>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 mb-1">Tailwind CSS Ready</h3>
+                            <p class="text-gray-600">Use all Tailwind CSS classes out of the box</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 mb-1">Resizable Panels</h3>
+                            <p class="text-gray-600">Adjust editor and preview panel sizes</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 mb-1">Export Options</h3>
+                            <p class="text-gray-600">Copy code or download as complete HTML file</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Resizer -->
-            <div class="resizer" id="resizer"></div>
+            <section class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">How to Use</h2>
+                <ol class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-semibold mr-4">1</span>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 mb-1">Write HTML Code</h3>
+                            <p class="text-gray-600">Start writing HTML in the left editor panel</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-semibold mr-4">2</span>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 mb-1">Add Tailwind Classes</h3>
+                            <p class="text-gray-600">Use Tailwind CSS utility classes for styling</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-semibold mr-4">3</span>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 mb-1">See Instant Preview</h3>
+                            <p class="text-gray-600">Watch your design come to life in the preview panel</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="flex-shrink-0 w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center font-semibold mr-4">4</span>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 mb-1">Export Your Work</h3>
+                            <p class="text-gray-600">Copy the code or download as a complete HTML file</p>
+                        </div>
+                    </li>
+                </ol>
+            </section>
 
-            <!-- Preview Panel -->
-            <section class="panel preview-panel">
-                <div class="panel-header">
-                    <h2>
-                        <svg class="panel-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                        Live Preview
-                    </h2>
-                    <div class="panel-controls">
-                        <button id="refreshBtn" class="btn btn-small btn-icon" title="Refresh preview">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                            </svg>
-                        </button>
-                        <button id="fullscreenBtn" class="btn btn-small btn-icon" title="Fullscreen preview">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="preview-container">
-                    <div class="preview-loading" id="previewLoading">
-                        <div class="loading-spinner"></div>
-                    </div>
-                    <iframe id="previewFrame" class="preview-frame" title="Preview"></iframe>
-                </div>
+            <section class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl shadow-lg p-8 text-white">
+                <h2 class="text-2xl font-bold mb-4">Ready to Start Building?</h2>
+                <p class="text-lg mb-6 opacity-90">
+                    Experience the power of real-time HTML and Tailwind CSS development
+                </p>
+                <a href="index.html" class="inline-flex items-center px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200">
+                    Open Editor Now
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                </a>
             </section>
         </main>
-
-        <!-- Status Bar -->
-        <div class="status-bar">
-            <div class="status-left">
-                <div class="status-item">
-                    <span class="status-dot"></span>
-                    <span>Ready</span>
-                </div>
-                <div class="status-item">
-                    <span id="statusInfo">HTML + Tailwind CSS</span>
-                </div>
-            </div>
-            <div class="status-right">
-                <div class="status-item">
-                    <span id="lastSaved">Auto-saved</span>
-                </div>
-                <div class="status-item">
-                    <span id="themeStatus">Dark Theme</span>
-                </div>
-            </div>
-        </div>
     </div>
-
-    <!-- Load feature modules -->
-    <script src="device-preview.js"></script>
-    <script src="autocomplete.js"></script>
-    <script src="error-detection.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
