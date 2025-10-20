@@ -9,6 +9,7 @@ class LiveEditor {
         this.refreshBtn = document.getElementById('refreshBtn');
         this.fullscreenBtn = document.getElementById('fullscreenBtn');
         this.themeToggle = document.getElementById('themeToggle');
+        this.findReplaceBtn = document.getElementById('findReplaceBtn');
         this.lineCountElement = document.getElementById('lineCount');
         this.charCountElement = document.getElementById('charCount');
         this.lineNumbersElement = document.getElementById('lineNumbers');
@@ -40,6 +41,9 @@ class LiveEditor {
 
         // Initialize current line highlighting
         this.initializeCurrentLineHighlight();
+
+        // Initialize find and replace widget
+        this.findReplaceWidget = new FindReplaceWidget(this);
 
         // Initialize device preview system
         this.devicePreview = new DevicePreview(this.previewFrame, this.previewContainer);
@@ -140,6 +144,7 @@ class LiveEditor {
         this.refreshBtn.addEventListener('click', () => this.updatePreview());
         this.fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
         this.themeToggle.addEventListener('click', () => this.toggleTheme());
+        this.findReplaceBtn.addEventListener('click', () => this.findReplaceWidget.show('find'));
 
         // Resizer events
         this.initializeResizer();
